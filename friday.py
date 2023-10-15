@@ -2,6 +2,7 @@ import random
 import json
 import torch
 from neuralnet import NeuralNet
+from clap import Tester
 from neurons import preprocess_text , tokenize
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -54,12 +55,20 @@ def Chatdata():
                 reply = random.choice(intent["responses"])
                 Speak(reply)
 
+def ClapDetection():
+    query = Tester()
+    if query == 'True-Mic':
+        Speak("Welcome back Swarnavo , Access of Friday is granted to you ")
+
 def Main():
     Chatdata()
 
 if __name__ == '__main__':
-    Main()
-    
+    ClapDetection()
+    while True:
+        Main()
+
+
 
 
 
