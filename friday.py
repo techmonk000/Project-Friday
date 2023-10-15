@@ -26,8 +26,8 @@ model.eval()
 
 Name = "Friday"
 from listen import Listen
-from speak import say
-def Main():
+from speak import Speak
+def Chatdata():
     sentence = Listen()
 
     if sentence == "bye":
@@ -52,8 +52,14 @@ def Main():
         for intent in intents['intents']:
             if tag == intent['tag']:
                 reply = random.choice(intent["responses"])
-                say(reply)
+                Speak(reply)
 
+def Main():
+    Chatdata()
+
+if __name__ == '__main__':
+    Main()
+    
 
 
 
