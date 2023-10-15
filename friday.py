@@ -28,10 +28,12 @@ model.eval()
 Name = "Friday"
 from listen import Listen
 from speak import Speak
+
 def Chatdata():
     sentence = Listen()
 
     if sentence == "bye":
+        Speak("Fine , I am signing off for now...Don't think that u can relax yet .")
         exit()
     
     sentence = tokenize(sentence)
@@ -55,13 +57,16 @@ def Chatdata():
                 reply = random.choice(intent["responses"])
                 Speak(reply)
 
+
 def ClapDetection():
     query = Tester()
     if query == 'True-Mic':
         Speak("Welcome back Swarnavo , Access of Friday is granted to you ")
 
+
 def Main():
     Chatdata()
+
 
 if __name__ == '__main__':
     ClapDetection()
