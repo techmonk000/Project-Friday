@@ -3,7 +3,7 @@ import struct
 import math
 import os
 
-INITIAL_TAP_THRESHOLD = 0.1 #0.01 - 1.5
+INITIAL_TAP_THRESHOLD = 0.03 #0.01 - 1.5
 FORMAT = pyaudio.paInt16 
 SHORT_NORMALIZE = (1.0/32768.0)
 CHANNELS = 2
