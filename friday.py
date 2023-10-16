@@ -55,7 +55,12 @@ def Chatdata():
         for intent in intents['intents']:
             if tag == intent['tag']:
                 reply = random.choice(intent["responses"])
-                Speak(reply)
+                if "time" in reply :
+                    pass
+                elif "date" in reply :
+                    pass
+                else:
+                    Speak(reply)
 
 
 def ClapDetection():
