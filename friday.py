@@ -4,6 +4,7 @@ import torch
 from neuralnet import NeuralNet
 from clap import Tester
 from neurons import preprocess_text , tokenize
+from task import NonInputFuncExe
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open("intents.json",'r') as json_data :
@@ -56,9 +57,14 @@ def Chatdata():
             if tag == intent['tag']:
                 reply = random.choice(intent["responses"])
                 if "time" in reply :
-                    pass
+                    Speak("Personally I think , Its high time for you to do something productive but for your convenience :")
+                    NonInputFuncExe(reply)
                 elif "date" in reply :
-                    pass
+                    Speak("Swarnavo , are u alright ? You are asking a AI like me what is today's Date...come on dude people fear me for world dominition...")
+                    NonInputFuncExe(reply)
+                elif "day" in reply:
+                    Speak("Well I have pretty concerned for your health but for your information today is :")
+                    NonInputFuncExe(reply)
                 else:
                     Speak(reply)
 
