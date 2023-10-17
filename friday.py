@@ -5,6 +5,7 @@ from neuralnet import NeuralNet
 from clap import Tester
 from neurons import preprocess_text , tokenize
 from task import NonInputFuncExe
+from task import Openfunc
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open("intents.json",'r') as json_data :
@@ -65,6 +66,13 @@ def Chatdata():
                 elif "day" in reply:
                     Speak("Well I have pretty concerned for your health but for your information today is :")
                     NonInputFuncExe(reply)
+                elif "open" in reply:
+                    Speak("As u wish swarnavo do u want me to open a website or an app from your laptop")
+                    tasknew = Listen()
+                    tasknew = str(tasknew).lower()
+                    Openfunc(tasknew)
+
+
                 else:
                     Speak(reply)
 
