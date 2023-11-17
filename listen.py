@@ -22,4 +22,3 @@ def Listen():
     query = str(query).lower()
     print(query)
     return query
-

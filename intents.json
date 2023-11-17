@@ -178,6 +178,11 @@
             "tag": "open",
             "patterns": ["open", "start", "visit", "launch"],
             "responses": ["open"]
+        },
+        {
+            "tag": "send",
+            "patterns": ["send", "whatsapp", "message", "send whatsapp"],
+            "responses": ["whatsapp"]
         }
     ]
 }

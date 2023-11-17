@@ -6,6 +6,7 @@ from clap import Tester
 from neurons import preprocess_text , tokenize
 from task import NonInputFuncExe
 from task import Openfunc
+from whatsapp import WhatsappSender
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open("intents.json",'r') as json_data :
@@ -71,8 +72,20 @@ def Chatdata():
                     tasknew = Listen()
                     tasknew = str(tasknew).lower()
                     Openfunc(tasknew)
-
-
+                elif "whatsapp" in reply:
+                    Speak("Swarnavo who do u want to send the message ?")
+                    Name = Listen()
+                    Name = str(Name).lower()
+                    Name = str(Name).replace("send ","")
+                    Name = str(Name).replace("a ","")
+                    Name = str(Name).replace("friday ","")
+                    Name = str(Name).replace("whatsapp ","")
+                    Name = str(Name).replace("message ","")
+                    Name = str(Name).replace("to ","")
+                    Name = str(Name).replace("my ","")
+                    Name = str(Name).replace(" ","")
+                    WhatsappSender(Name)
+                    return True
                 else:
                     Speak(reply)
 
@@ -91,7 +104,6 @@ if __name__ == '__main__':
     ClapDetection()
     while True:
         Main()
-
 
 
 
